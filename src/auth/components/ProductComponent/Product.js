@@ -16,7 +16,7 @@ class Product extends Component{
     }
     
     showProduct = (e) => {
-        customerProduct(this.props.user, this.props.id)
+        getAllProducts(this.props.user, this.props.id)
         .then((result) => {
             this.props.setProductList(result.product)
             this.setState({ addProduct : true })
