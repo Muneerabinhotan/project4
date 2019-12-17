@@ -55,3 +55,71 @@ export const changePassword = (passwords, user) => {
     }
   })
 }
+
+////////////
+
+/*
+*                 Product
+*/
+export const addProduct = (user, product) => {
+  return axios({
+    url: apiUrl + '/api/products',
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    
+      product: {
+        name: product.name,
+        description: product.descrition,
+        price: product.price,
+        user: user._id
+      }
+    
+  })
+}
+
+// Get all Products
+export const getAllProducts = function () {
+  return axios.get(`${apiUrl}/api/products`);
+}
+
+// Delete Product By ID
+export const deleteProductById = function (id) {
+  return axios.delete(`${apiUrl}/api/products/${id}`);
+}
+
+
+/*
+*                 Order
+*/
+export const addOrder = (user, order) => {
+  return axios({
+    url: apiUrl + '/api/orders',
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+ 
+      order: {
+        user: user._id,
+        products: order,
+       
+      }
+      
+  })
+}
+// Get all Orders
+export const getAllOrders = () => {
+  return axios({
+    url: apiUrl + '/api/orders',
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
+// Delete Order By ID
+export const deleteOrderById = function (id) {
+  return axios.delete(`${apiUrl}/api/orders/${id}`);
+}
