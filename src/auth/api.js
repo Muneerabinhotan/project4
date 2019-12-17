@@ -110,7 +110,7 @@ export const addOrder = (user, order) => {
   })
 }
 // Get all Orders
-export const getAllOrders = () => {
+export const getAllOrders = (user) => {
   return axios({
     url: apiUrl + '/api/orders',
     method: 'GET',
