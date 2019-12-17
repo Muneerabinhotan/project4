@@ -9,14 +9,17 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
+import Products from './auth/components/ProductComponent/Products'
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
 
     this.state = {
       user: null,
-      alerts: []
+      alerts: [],
+      products: []
+
     }
   }
 
@@ -28,7 +31,11 @@ class App extends Component {
     this.setState({ alerts: [...this.state.alerts, { message, type }] })
   }
 
-  render () {
+  setProducts = (products) => {
+    this.setState({ products: products });
+  }
+
+  render() {
     const { alerts, user } = this.state
 
     return (
@@ -50,7 +57,15 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+
+          <Route path='/products' render={() => (
+            <Products products={this.state.products}
+              setProducts={this.setProducts} />
+          )} />
         </main>
+
+
+
       </React.Fragment>
     )
   }

@@ -80,7 +80,7 @@ export const addProduct = (user, product) => {
 }
 
 // Get all Products
-export const getAllProducts = function () {
+export const getAllProduct = function () {
   return axios.get(`${apiUrl}/api/products`);
 }
 
