@@ -1,8 +1,7 @@
-![logo](./src/Assets/Images/warshaty2.png)
+
 #  Project #4: Shopping Website
  
 ## Table of Contents
-
 - [User Story](#user-story)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Wireframe](#wireframe)
