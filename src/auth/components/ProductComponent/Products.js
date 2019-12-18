@@ -28,26 +28,22 @@ class Products extends Component{
             });
     }
 
-    addProduct(id){
-        return <Redirect to={{
-            pathname: '/add-product',
-            state: { id: id}
-            }}
-        />
-    }
+
     render() {
-        let allProducts = <h2> No Products</h2>
+        console.log(this.props.user)
+        let allProducts = <h2>No Products</h2>
         if (this.props.products.length > 0) {
             allProducts = this.props.products.map((product, index) => {
                 return <Product 
+                user = {this.props.user}
                 name={product.name} 
                 description={product.description}
                 price={product.price}
-                // user={this.props.user} 
+                image={product.image}
                 id={product._id} 
                 deleteProduct={this.deleteProduct} 
                 key={index} 
-                // setProducts={this.props.setProducts}
+                product={product}
                 />
             });
         }

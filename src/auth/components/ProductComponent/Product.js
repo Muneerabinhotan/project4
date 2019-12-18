@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
-// import { getAllProducts } from '../../api';
+import {Link} from 'react-router-dom';
 
 class Product extends Component{
 
@@ -16,7 +15,26 @@ class Product extends Component{
                 <p>
                     {this.props.price}
                 </p>
-                <a href='/' onClick={this.deleteProducts}>Delete Product</a>
+                <img src={this.props.image} alt="Logo" />
+
+                
+                {this.props.user ?
+                this.props.user.userRole === 'Admin' ?
+                
+                <Link
+                    to={{
+                        pathname: "/update-product",
+                        state: { info: this.props.product }
+                    }}
+                    >
+                Update Product</Link>
+                : false
+            :false}
+                {this.props.user ?
+                this.props.user.userRole === 'Admin' ?
+                <a href='/home' onClick={this.deleteProducts}>Delete Product</a>
+                : false
+            :false}
             </div>
         );
     }

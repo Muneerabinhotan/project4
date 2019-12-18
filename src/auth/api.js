@@ -61,21 +61,23 @@ export const changePassword = (passwords, user) => {
 /*
 *                 Product
 */
-export const addProduct = (user, product) => {
+export const addProduct = ( product,user) => {
   return axios({
     url: apiUrl + '/api/products',
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
-    
+    data:{
       product: {
         name: product.name,
-        description: product.descrition,
+        description: product.description,
         price: product.price,
+        image: product.image,
         user: user._id
+        // product: product
       }
-    
+    }
   })
 }
 
@@ -88,7 +90,29 @@ export const getAllProduct = function () {
 export const deleteProductById = function (id) {
   return axios.delete(`${apiUrl}/api/products/${id}`);
 }
+// Edit Product By ID
+export const editProductById = function (product,user) {
+  console.log("=========");
+  
+  return axios({
+    url: `${apiUrl}/api/products/${product.id}`,
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${user.token}` // FOR EXPRESS
+      // 'Authorization': `Token ${user.token}` // FOR RAILS
+    },
+    data: {
+      product: {
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        image: product.image,
+        user: user._id
+      }
+    }
+  })
 
+}
 
 /*
 *                 Order
@@ -100,13 +124,13 @@ export const addOrder = (user, order) => {
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
- 
+    data:{
       order: {
         user: user._id,
         products: order,
        
       }
-      
+    }
   })
 }
 // Get all Orders

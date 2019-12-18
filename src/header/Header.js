@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom'
 
 import './Header.scss'
 
-const authenticatedOptions = (
-  <React.Fragment>
+const authenticatedOptions = (role)=>{
+  return (<React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
+    {role === 'Admin' 
+    ? <Link to="/add-product">Add Product</Link>
+  :false
+  }
+   
   </React.Fragment>
-)
+  )}
 
 const unauthenticatedOptions = (
   <React.Fragment>
@@ -19,7 +24,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/">Home</Link>
+    <Link to="/home">Home Page</Link>
   </React.Fragment>
 )
 
@@ -28,7 +33,7 @@ const Header = ({ user }) => (
     <h1>Shopping Website</h1>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
-      { user ? authenticatedOptions : unauthenticatedOptions }
+      { user ? authenticatedOptions(user.userRole) : unauthenticatedOptions }
       { alwaysOptions }
     </nav>
   </header>
