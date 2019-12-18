@@ -9,37 +9,34 @@ class Product extends Component{
     };
 
     setProductId = (e) => {
-        console.log(this.props.id)
+        console.log('setProductId', this.props.id)
         e.preventDefault();
         this.props.setProductId(this.props.id);
     };
     render() {
         return (
-            <div className='product'>
-                <h2>{this.props.name}</h2>
-                <sub>{this.props.description}</sub>
-                <p>
-                    {this.props.price}
-                </p>
-                <img src={this.props.image} alt="Logo" />
+            <div className='productsContainer'> 
+                <img className="image" src={this.props.image} height="320" width="250" alt="item" />
+                <h6 className="titles"> <strong>Name:</strong><br/>{this.props.name}</h6>
 
-                
+                <p className="titles"><strong>Description:</strong><br/>
+                {this.props.description}</p>
+                <p className="titles" >
+                    <strong>Price: $</strong>{this.props.price}
+                </p>
                 {this.props.user ?
                 this.props.user.userRole === 'Admin' ?
-                
-                <Link
-                    to={{
-                        pathname: "/update-product",
-                        state: { info: this.props.product }
-                    }}
-                    >
-                Update Product</Link>
-                : false
+                <Link className="btn btn-dark bttn" to={{
+                    pathname: "/update-product",
+                    state: { info: this.props.product }
+                    }}> Update Product</Link>
+                :false
             :false}
+
                 {this.props.user ?
                 this.props.user.userRole === 'Admin' ?
-                <a href='/home' onClick={this.deleteProducts}>Delete Product</a>
-                : <button onClick={this.setProductId} > Add to Cart</button>
+                <button className="btn btn-dark bttn" onClick={this.deleteProducts}>Delete Product</button>
+                : <button className="btn btn-dark bttn" onClick={this.setProductId} > Add to Cart</button>
             :false}
             </div>
         );

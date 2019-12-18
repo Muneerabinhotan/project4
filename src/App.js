@@ -22,7 +22,8 @@ class App extends Component {
       user: null,
       alerts: [],
       products: [],
-      productIds: []
+      productIds: [],
+      cart:[]
 
     }
   }
@@ -59,7 +60,7 @@ setProductId = (id) =>{
           <AlertDismissible key={index} variant={alert.type} message={alert.message} />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
+          <Route  path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
           <Route path='/sign-in' render={() => (
@@ -84,7 +85,7 @@ setProductId = (id) =>{
                 :  <Products products={this.state.products}
                 setProducts={this.setProducts} user={user} setProductId={this.setProductId}/>
             )} />
-            
+
             <AuthenticatedRoute user={user} path='/update-product' render={(props) => (
              <UpdateProduct {...props}  setAddProducts={this.setAddProducts} alert={this.alert} user={user} />
             

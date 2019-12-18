@@ -5,12 +5,12 @@ import './Header.scss'
 
 const authenticatedOptions = (role)=>{
   return (<React.Fragment>
-    <Link to="/change-password">Change Password</Link>
-    <Link to="/sign-out">Sign Out</Link>
     {role === 'Admin' 
     ? <Link to="/add-product">Add Product</Link>
   :false
   }
+    <Link to="/change-password">Change Password</Link>
+    <Link to="/sign-out">Sign Out</Link>
    
   </React.Fragment>
   )}
@@ -30,7 +30,8 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>Shopping Website</h1>
+  {/* <img className="image" src={"https://cdn3.vectorstock.com/i/1000x1000/81/67/diamond-jewelry-luxury-icon-on-white-background-vector-28078167.jpg"} height="100" width="100" alt="Logo" /> */}
+    <h1>Trend Spotter</h1>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions(user.userRole) : unauthenticatedOptions }
