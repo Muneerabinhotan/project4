@@ -118,6 +118,8 @@ export const editProductById = function (product,user) {
 *                 Order
 */
 export const addOrder = (user, order) => {
+  
+  
   return axios({
     url: apiUrl + '/api/orders',
     method: 'POST',
@@ -135,11 +137,15 @@ export const addOrder = (user, order) => {
 }
 // Get all Orders
 export const getAllOrders = (user) => {
+  console.log(user);
   return axios({
     url: apiUrl + '/api/orders',
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      userId: user._id
     }
   })
 }

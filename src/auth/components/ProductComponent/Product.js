@@ -7,6 +7,12 @@ class Product extends Component{
         e.preventDefault();
         this.props.deleteProduct(this.props.id);
     };
+
+    setProductId = (e) => {
+        console.log(this.props.id)
+        e.preventDefault();
+        this.props.setProductId(this.props.id);
+    };
     render() {
         return (
             <div className='product'>
@@ -33,7 +39,7 @@ class Product extends Component{
                 {this.props.user ?
                 this.props.user.userRole === 'Admin' ?
                 <a href='/home' onClick={this.deleteProducts}>Delete Product</a>
-                : false
+                : <button onClick={this.setProductId} > Add to Cart</button>
             :false}
             </div>
         );

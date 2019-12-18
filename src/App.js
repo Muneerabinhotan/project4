@@ -11,7 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 import Products from './auth/components/ProductComponent/Products'
 import AddProduct from './auth/components/ProductComponent/AddProduct'
-import Orders from './auth/components/OrderComponent/Orders'
+import Order from './auth/components/OrderComponent/Order'
 import UpdateProduct from './auth/components/ProductComponent/UpdateProduct'
 
 class App extends Component {
@@ -21,11 +21,14 @@ class App extends Component {
     this.state = {
       user: null,
       alerts: [],
-      products: []
+      products: [],
+      productIds: []
 
     }
   }
-
+setProductId = (id) =>{
+  this.setState({ productIds: [...this.state.productIds, id] })
+}
   setUser = user => this.setState({ user })
 
   clearUser = () => this.setState({ user: null })
@@ -71,7 +74,7 @@ class App extends Component {
           )} />
           <Route path='/home' render={() => ( // Products Path
             <Products products={this.state.products}
-            setProducts={this.setProducts} user={user}/>
+            setProducts={this.setProducts} user={user} setProductId={this.setProductId}/>
             )} />
             
             <AuthenticatedRoute exact path="/add-product" user={user} render={() => (
@@ -79,17 +82,18 @@ class App extends Component {
               <AddProduct setProducts={this.state.setProducts}
                 setAddProducts={this.setAddProducts} user={user} alert={this.alert} />
                 :  <Products products={this.state.products}
-                setProducts={this.setProducts} user={user}/>
+                setProducts={this.setProducts} user={user} setProductId={this.setProductId}/>
             )} />
+            
             <AuthenticatedRoute user={user} path='/update-product' render={(props) => (
              <UpdateProduct {...props}  setAddProducts={this.setAddProducts} alert={this.alert} user={user} />
             
           )} />
 
 
-          <Route path='/orders' render={() => ( // Orders Path
-            <Orders orders={this.state.orders}
-              setOrders={this.setOrders} />
+          <Route  path='/order' render={() => ( // Orders Path
+            <Order productIds={this.state.productIds} user={user}
+               />
           )} />
 
 

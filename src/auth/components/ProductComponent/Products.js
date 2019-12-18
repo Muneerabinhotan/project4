@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { addProduct, getAllProduct, deleteProductById } from '../../api';
+import { getAllProduct, deleteProductById } from '../../api';
 import Product from './Product';
 
 class Products extends Component{
@@ -44,6 +44,7 @@ class Products extends Component{
                 deleteProduct={this.deleteProduct} 
                 key={index} 
                 product={product}
+                setProductId= {this.props.setProductId}
                 />
             });
         }
