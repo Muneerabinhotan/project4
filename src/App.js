@@ -11,8 +11,11 @@ import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 import Products from './auth/components/ProductComponent/Products'
 import AddProduct from './auth/components/ProductComponent/AddProduct'
-import Order from './auth/components/OrderComponent/Order'
 import UpdateProduct from './auth/components/ProductComponent/UpdateProduct'
+import Inquries from './auth/components/InquiryProduct/Inquiries'
+import AddInquiry from './auth/components/InquiryProduct/AddInquiry'
+import Order from './auth/components/OrderComponent/Order'
+import Inquiries from './auth/components/InquiryProduct/Inquiries'
 
 class App extends Component {
   constructor() {
@@ -22,6 +25,7 @@ class App extends Component {
       user: null,
       alerts: [],
       products: [],
+      inquiries: [],
       productIds: [],
       cart:[]
 
@@ -44,6 +48,14 @@ setProductId = (id) =>{
 
   setAddProducts = (addProduct)=>{
     this.setState({addProduct:addProduct})
+  }
+
+  setInquiries = (inquiries) =>{
+    this.setState({ inquiries: inquiries})
+  }
+
+  setAddInquiries = (addInquiry) =>{
+    this.setState({ addInquiry: addInquiry})
   }
 
   setOrders = (orders) => {
@@ -77,19 +89,30 @@ setProductId = (id) =>{
             <Products products={this.state.products}
             setProducts={this.setProducts} user={user} setProductId={this.setProductId}/>
             )} />
+
+          <Route path='/inquiries' render={() => ( // Inquiries Path
+             <Inquiries inquiries={this.state.inquiries}
+              setInquiries={this.setInquiries} user={user}/>
+               )} />
             
             <AuthenticatedRoute exact path="/add-product" user={user} render={() => (
               (user.userRole === 'Admin') ?
               <AddProduct setProducts={this.state.setProducts}
                 setAddProducts={this.setAddProducts} user={user} alert={this.alert} />
-                :  <Products products={this.state.products}
-                setProducts={this.setProducts} user={user} setProductId={this.setProductId}/>
+                : false
             )} />
+          <AuthenticatedRoute exact path="/add-inquiry" user={user} render={() => (
+              (user.userRole === 'Customer') ?
+              <AddInquiry inquiries={this.state.inquiries}
+              setInquiries={this.setInquiries} user={user}/>
+              : false )} />
 
             <AuthenticatedRoute user={user} path='/update-product' render={(props) => (
              <UpdateProduct {...props}  setAddProducts={this.setAddProducts} alert={this.alert} user={user} />
             
           )} />
+
+
 
 
           <Route  path='/order' render={() => ( // Orders Path

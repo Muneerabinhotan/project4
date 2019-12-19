@@ -92,7 +92,7 @@ export const deleteProductById = function (id) {
 }
 // Edit Product By ID
 export const editProductById = function (product,user) {
-  console.log("=========");
+  console.log("it works");
   
   return axios({
     url: `${apiUrl}/api/products/${product.id}`,
@@ -114,6 +114,37 @@ export const editProductById = function (product,user) {
 
 }
 
+
+/*
+*                 Inquiries
+*/
+// Add inquiry
+export const addInquiry = ( inquiry,user) => {
+  return axios({
+    url: apiUrl + '/api/inquiries',
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data:{
+      inquiry: {
+        name: inquiry.name,
+        description: inquiry.description,
+        user: user._id,
+        inquiry: inquiry
+      }
+    }
+  })
+}
+
+// Get all Inquiries
+export const getAllInquiries = function () {
+  return axios.get(`${apiUrl}/api/inquiries`);
+}
+
+
+
+//  FUTURE DEVELOPMENT
 /*
 *                 Order
 */

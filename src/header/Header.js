@@ -7,8 +7,13 @@ const authenticatedOptions = (role)=>{
   return (<React.Fragment>
     {role === 'Admin' 
     ? <Link to="/add-product">Add Product</Link>
-  :false
+  : <Link to="/add-inquiry">Add Inquiry</Link>
   }
+ {role === 'Customer' 
+    ? <Link to="/inquiries">Inquiries</Link>
+  : false
+  }
+  
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
    
