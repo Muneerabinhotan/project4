@@ -6,17 +6,18 @@
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Wireframe](#wireframe)
 - [Technologies used](#Technologies)
-- [Further Study](#further-study)
+- [Future Development](#future-development)
 
 ## User Story 
 1. Can Sign up and Sign in.
-2. The Admin have the ability to add Product.
-3. The Admin have the ability to edit Product.
-4. The Admin have the ability to delete Product.
-5. The Customer have the ability to display the Products.
-
+2. The Admin has the ability to add Product.
+3. The Admin has the ability to edit Product.
+4. The Admin has the ability to delete Product.
+5. The Customer has the ability to display the Products.
+6. The Customer has the ability to add an Inquiry. 
+7. The Admin has the ability to display the inquiries.
 ## Entity Relationship Diagram
-![ERd](trendSpotter.png)
+![ERD](trendSpotter.png)
 
 ## Wireframe
 ![Sign-up](signUp.png)
@@ -27,15 +28,15 @@
 ![Edit Product](editProduct.png)
 
 ## Technologies
-* [npm](https://www.npmjs.com/package/download).
-* [Postman](https://www.getpostman.com/downloads/).
-* [React.js](https://react-cn.github.io/react/downloads.html).
-* [Node.js](https://nodejs.org/en/download/).
-* [Express.js ](https://expressjs.com/en/starter/installing.html).
+* [npm](https://www.npmjs.com/package/download)
+* [Postman](https://www.getpostman.com/downloads/)
+* [React.js](https://react-cn.github.io/react/downloads.html)
+* [Node.js](https://nodejs.org/en/download/)
+* [Express.js ](https://expressjs.com/en/starter/installing.html)
 * [ExpressTemplate](https://github.com/sei-relativity/express-api-template)
 * [ReactTemplate](https://github.com/sei-relativity/react-template)
 
 
 ## Future Development
-* Let the Customer has the ability to add Orders
+* Let the Customer has the ability to add Orders.
 

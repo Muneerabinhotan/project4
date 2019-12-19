@@ -90,10 +90,12 @@ body{
 }
 .productsContainer{
   display:inline-block;
-  justify-content: center;
+  flex-direction: column;
+  // justify-content: center;
   text-align: center;
   margin-left:100px;
   margin-top: 20px;
+
 }
 
 .image{
@@ -120,6 +122,18 @@ h1{
 
 a {
   color: #FFF;
+}
+
+.inquiryContainer{
+  margin-top: 20px;
+  display: inline-block;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color:#181818;
+  color: white;
+  max-width: 400px;
+  width: 100%;
+  margin-left: 100px;
 }
 
 

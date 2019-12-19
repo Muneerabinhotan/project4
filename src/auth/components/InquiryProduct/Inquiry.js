@@ -5,7 +5,7 @@ class Inquiry extends Component{
 
     render() {
         return (
-            <div className='inquiriesContainer'> 
+            <div className='inquiryContainer'> 
                 
                 <h6 className="titles"> <strong>Title:</strong><br/>{this.props.name}</h6>
 

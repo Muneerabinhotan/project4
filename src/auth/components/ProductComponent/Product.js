@@ -29,9 +29,9 @@ class Product extends Component{
                 <Link className="btn btn-dark bttn" to={{
                     pathname: "/update-product",
                     state: { info: this.props.product }
-                    }}> Update Product</Link>
+                }}> Update Product</Link>
                 :false
-            :false}
+                :false}
 
                 {this.props.user ?
                 this.props.user.userRole === 'Admin' ?

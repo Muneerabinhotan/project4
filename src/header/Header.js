@@ -9,7 +9,7 @@ const authenticatedOptions = (role)=>{
     ? <Link to="/add-product">Add Product</Link>
   : <Link to="/add-inquiry">Add Inquiry</Link>
   }
- {role === 'Customer' 
+ {role === 'Admin' 
     ? <Link to="/inquiries">Inquiries</Link>
   : false
   }
