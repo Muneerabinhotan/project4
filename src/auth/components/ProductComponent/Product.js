@@ -36,7 +36,8 @@ class Product extends Component{
                 {this.props.user ?
                 this.props.user.userRole === 'Admin' ?
                 <button className="btn btn-dark bttn" onClick={this.deleteProducts}>Delete Product</button>
-                : <button className="btn btn-dark bttn" onClick={this.setProductId} > Add to Cart</button>
+                :false
+                // : <button className="btn btn-dark bttn" onClick={this.setProductId} > Add to Cart</button>
             :false}
             </div>
         );
