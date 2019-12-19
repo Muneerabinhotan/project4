@@ -20,12 +20,12 @@
 ![ERD](trendSpotter.png)
 
 ## Wireframe
-![Sign-up](signUp.png)
-![Sign-in](signIn.png)
 ![Home page](homePage.png)
 ![Home Page as an Admin](homePage1.png)
 ![Add Product](addProduct.png)
 ![Edit Product](editProduct.png)
+![Sign-up](signUp.png)
+![Sign-in](signIn.png)
 
 ## Technologies
 * [npm](https://www.npmjs.com/package/download)
